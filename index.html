@@ -2,14 +2,25 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>我的视频播放器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的作品集</title>
+    <style>
+        body { text-align: center; font-family: sans-serif; padding: 50px; }
+        .video-container { max-width: 800px; margin: 0 auto; }
+        video { width: 100%; border: 5px solid #333; border-radius: 10px; }
+    </style>
 </head>
 <body>
-    <h1>视频展示</h1>
-    <video width="640" height="360" controls>
-        <!-- 将 src 替换为你的视频路径或直链 -->
-        <source src="DemoReel.mp4" type="video/mp4">
-        您的浏览器不支持 HTML5 视频播放。
-    </video>
+    <h1>我的游戏设计 Demo Reel</h1>
+    
+    <div class="video-container">
+        <!-- 请把下面的 src 链接替换成你在第一步获取到的真实视频地址 -->
+        <video controls>
+           <source src="demo.mp4" type="video/mp4">)
+            您的浏览器不支持视频播放，请检查链接。
+        </video>
+    </div>
+
+    <p>如果视频无法播放，请检查链接是否正确。</p>
 </body>
 </html>
