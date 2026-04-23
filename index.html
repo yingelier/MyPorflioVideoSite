@@ -2,32 +2,83 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>我的 R2 视频播放器</title>
-    <!-- 引入 Video.js 样式 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的游戏设计 Demo Reel</title>
+    
+    <!-- 引入 Video.js 的 CSS 样式 -->
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    
     <style>
-        body { background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .video-container { width: 90%; max-width: 960px; }
-        .video-js { width: 100%; height: auto; }
+        /* 页面整体居中，背景色为深灰 */
+        body { 
+            background-color: #1a1a1a; 
+            margin: 0; 
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        h1 { margin-bottom: 20px; font-weight: 300; }
+
+        /* 播放器容器，限制最大宽度以适配各种屏幕 */
+        .video-container { 
+            width: 90%; 
+            max-width: 960px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* 确保 Video.js 播放器自适应容器大小 */
+        .video-js { 
+            width: 100%; 
+            height: auto; 
+            aspect-ratio: 16 / 9; /* 保持视频比例 */
+        }
+
+        /* 播放按钮居中样式 */
+        .vjs-big-play-centered .vjs-big-play-button {
+            left: 50% !important;
+            top: 50% !important;
+            transform: translate(-50%, -50%);
+        }
     </style>
 </head>
 <body>
 
-<div class="video-container">
-    <video
-        id="my-video"
-        class="video-js vjs-big-play-centered"
-        controls
-        preload="auto"
-        data-setup='{}'>
-        <!-- 把这里的 src 换成你在 R2 获取的公共链接 -->
-        <source src="https://pub-3800963a69234c36acf2406e6a57502a.r2.dev/05_PlayerHUD.mp4" />
-        <p class="vjs-no-js">您的浏览器不支持 JavaScript。</p>
-    </video>
-</div>
+    <h1>我的游戏设计 Demo Reel</h1>
 
-<!-- 引入 Video.js 脚本 -->
-<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <div class="video-container">
+        <!-- 播放器主体 -->
+        <video
+            id="my-video"
+            class="video-js vjs-big-play-centered"
+            controls
+            preload="auto"
+            data-setup='{}'>
+            
+            <!-- 这里填写你 R2 的视频地址 -->
+            <source src="https://pub-3800963a69234c36acf2406e6a57502a.r2.dev/05_PlayerHUD.mp4" type="video/mp4" />
+            
+            <p class="vjs-no-js">
+                您的浏览器不支持 HTML5 视频，请升级您的浏览器。
+            </p>
+        </video>
+    </div>
 
+    <!-- 引入 Video.js 的 JS 库 -->
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
+    <script>
+        // 可选：在这里添加一些播放器的自定义逻辑
+        var player = videojs('my-video', {
+            autoplay: false, // 是否自动播放
+            loop: false      // 是否循环播放
+        });
+    </script>
 </body>
 </html>
